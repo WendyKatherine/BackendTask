@@ -1,0 +1,37 @@
+{
+  "name": "task-list-api",
+  "version": "1.0.0",
+  "description": "Task App for Lodgerin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:watch": "node --watch index.js"
+  },
+  "keywords": [
+    "API",
+    "REST"
+  ],
+  "author": "Wendy Katherine Gomez",
+  "license": "ISC",
+  "dependencies": {
+    "@types/multiparty": "^4.2.1",
+    "body-parser": "^2.2.0",
+    "cloudinary": "^1.41.3",
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.1",
+    "mongoose": "^8.16.0",
+    "mongoose-paginate-v2": "^1.9.1",
+    "multer": "^2.0.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "path": "^0.12.7"
+  },
+  "type": "module",
+  "devDependencies": {
+    "multiparty": "^4.2.3",
+    "nodemon": "^3.1.10"
+  }
+}
