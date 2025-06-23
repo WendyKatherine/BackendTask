@@ -19,13 +19,17 @@ connection();
 const app = express();
 const port = process.env.PORT || 3900;
 
+const allowedOrigins = [
+    "https://frontend-task-one-bay.vercel.app",
+    "http://localhost:3900"
+];
+
 //Configuracion de CORS para aceptar las peticiones del front
 app.use(cors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    allowedHeaders: "Content-Type,Authorization",
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 //Decodificar datos desde los formularios para convertirlos en objetos Javascript
