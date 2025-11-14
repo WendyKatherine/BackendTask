@@ -20,7 +20,7 @@ const app = express();
 const port = process.env.PORT || 3900;
 
 const allowedOrigins = [
-    "https://frontend-task-one-bay.vercel.app",
+    "https://frontend-task-b90obfv3n-wendykatherines-projects.vercel.app",
     "http://localhost:3900"
 ];
 
