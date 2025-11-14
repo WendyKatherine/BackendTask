@@ -20,8 +20,9 @@ const app = express();
 const port = process.env.PORT || 3900;
 
 const allowedOrigins = [
-    "https://frontend-task-b90obfv3n-wendykatherines-projects.vercel.app",
-    "http://localhost:3900"
+  "https://frontend-task-b90obfv3n-wendykatherines-projects.vercel.app",
+  "https://frontend-task-one-bay.vercel.app",
+  "http://localhost:5173"
 ];
 
 //Configuracion de CORS para aceptar las peticiones del front
