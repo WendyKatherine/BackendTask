@@ -1,35 +1,49 @@
+// models/Task.js
 import { Schema, model } from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2";
 
-const TaskSchema = Schema ({
-        task_id: {
-            type: Schema.ObjectId,
-            ref: 'Task',
-            require: true
-        },
-        title:       { type: String, required: true },
-        description: { type: String },
-        dueDate:     { type: Date },
-        status: {
-            type: String,
-            enum: ['pending', 'in‑progress', 'completed'],
-            default: 'pending',
-        },
-        image: {
-            type: String,
-            default: "default_user.png"
-        },
-        created_by: {
-            type: String,
-        },
-        created_at: {
-            type: Date,
-            default: Date.now
-        },
+const TaskSchema = Schema(
+  {
+    //Título y descripción
+    title:       { type: String, required: true },
+    description: { type: String },
+
+    //Fecha límite
+    dueDate:     { type: Date, required: true },
+
+    //Estado tipo kanban
+    status: {
+      type: String,
+      enum: ['pending', 'in-progress', 'completed'],
+      default: 'pending',
     },
-        { timestamps: true }
+
+    //Imagen asociada
+    image: {
+      type: String,
+      default: "default_user.png",
+    },
+
+    //Tablero al que pertenece la tarea
+    board: {
+      type: Schema.Types.ObjectId,
+      ref: 'Board',
+      required: true,
+    },
+
+    //Usuario que creó la tarea (por ahora lo llenas con un id o nombre, luego con User real)
+    created_by: {
+      type: String,
+      required: true,
+      // luego puedes cambiarlo a:
+      // type: Schema.Types.ObjectId,
+      // ref: 'User',
+    },
+  },
+  { timestamps: true } // ya tienes createdAt / updatedAt
 );
 
-//Configuracion de plugin paginacion
+// Configuración de plugin paginación
 TaskSchema.plugin(mongoosePaginate);
+
 export default model('Task', TaskSchema, 'tasks');
