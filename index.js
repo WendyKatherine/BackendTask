@@ -19,18 +19,14 @@ connection();
 const app = express();
 const port = process.env.PORT || 3900;
 
-const allowedOrigins = [
-  "https://frontend-task-b90obfv3n-wendykatherines-projects.vercel.app",
-  "https://frontend-task-one-bay.vercel.app",
-  "http://localhost:5173"
-];
-
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
